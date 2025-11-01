@@ -1,27 +1,7 @@
 <html><head><script></script>
 
     
-document.addEventListener("DOMContentLoaded", function() {
-  const elements = document.querySelectorAll('*');
-  
-  elements.forEach(el =&gt; {
-    if (el.childNodes.length) {
-      el.childNodes.forEach(child =&gt; {
-        if (child.nodeType === 3) {
-          const updatedText = child.textContent.replace(/&lt;redacted&gt;(.*?)&lt;\/redacted&gt;/gi, (match, p1) =&gt; {
-            return `&lt;span style="color: #ff0000; font-weight: bold;"&gt;&lt;a href="/tos" target="_blank"&gt;${p1}&lt;/a&gt;&lt;/span&gt;`;
-          });
 
-          if (updatedText !== child.textContent) {
-            const span = document.createElement('span');
-            span.innerHTML = updatedText;
-            child.replaceWith(span);
-          }
-        }
-      });
-    }
-  });
-});
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="data:,">
